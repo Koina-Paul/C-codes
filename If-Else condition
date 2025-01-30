@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int x;
+    cout<<"Enter the value of a:";
+    cin>>x;
+    if(x>0){
+        cout<<"The number is positive";
+    }else if(x<0){
+        cout<<"The number is negative";
+    }else{
+    cout<<"The number is zero";
+    }
+    return 0;
+}
