@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int NUM_CANDIDATES = 3;
+
+struct Candidate {
+    string name;
+    int votes;
+};
+
+void displayResults(Candidate candidates[]) {
+    cout << "Election Results:" << endl;
+    for (int i = 0; i < NUM_CANDIDATES; ++i) {
+        cout << candidates[i].name << ": " << candidates[i].votes << " votes" << endl;
+    }
+}
+
+int main() {
+    Candidate candidates[NUM_CANDIDATES] = {
+        {"Candidate A", 0},
+        {"Candidate B", 0},
+        {"Candidate C", 0}
+    };
+    
+    int numVoters;
+    cout << "Enter the number of voters: ";
+    cin >> numVoters;
+    
+    for (int i = 0; i < numVoters; ++i) {
+        int vote;
+        cout << "Voter " << (i + 1) << ": Enter your vote (0 for Candidate A, 1 for Candidate B, 2 for Candidate C): ";
+        cin >> vote;
+        if (vote >= 0 && vote < NUM_CANDIDATES) {
+            candidates[vote].votes++;
+        } else {
+            cout << "Invalid vote!" << endl;
+        }
+    }
+    
+    displayResults(candidates);
+    
+    return 0;
+}
